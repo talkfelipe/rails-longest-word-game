@@ -1,12 +1,16 @@
-<h1>New Game</h1>
+<div class="container border my-3 shadow rounded text-center align-items-center">
+  <h1 class="p-3">New Game</h1>
 
-<% @letters.each do |letter| %>
-      <span><%=letter%></span>
-    <% end %>
+  <% @letters.each do |letter| %>
+        <span class="p-3 bg-primary text-white"><%=letter%></span>
+      <% end %>
 
-<form action="score" method="post" data-turbo="false">
-  <input type="text" id="word" name="word">
-  <input type="submit" value="Submit your asnwer">
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <%= hidden_field_tag :letters, @letters %>
-</form>
+  <div class="m-5">
+    <form action="score" method="post" data-turbo="false">
+      <input type="text" id="word" name="word">
+      <input type="submit" value="Submit your asnwer" class="btn btn-warning">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :letters, @letters %>
+    </form>
+  </div>
+</div>

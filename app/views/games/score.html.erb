@@ -1,4 +1,8 @@
-<h1>Result</h1>
-<p><%=@result%></p>
+<div class="container border my-3 shadow rounded text-center align-items-center">
+  <div class="p-3 m-3">
+    <h1>Result</h1>
+    <p><%=@result%></p>
 
-<%= link_to "Play again!", new_path  %>
+    <%= link_to "Play again!", new_path, class: "btn btn-warning"  %>
+  </div>
+</div>

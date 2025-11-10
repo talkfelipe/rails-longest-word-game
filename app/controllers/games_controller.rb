@@ -17,12 +17,14 @@ class GamesController < ApplicationController
     uri = URI.parse(url)
     response = JSON.parse(URI.parse(uri).read)
 
-    if in_the_grid && !response["found"]
-      @result = "In the grid but not a word"
+    if in_the_grid && response["error"] == "word not found"
+      @result = "#{word.capitalize}is in the grid but is not a valid English word"
+    elsif !in_the_grid || word != nil
+      @result = "Word is not in the grid, Try again!"
     elsif in_the_grid
-      @result = "You Won"
+      @result = "Congratulations! #{word.capitalize} is a valid English word!"
     else
-      @result = "You Lost"
+      @result = "#{word.capitalize} is not a valid English word! You Lost!"
     end
   end
 end
